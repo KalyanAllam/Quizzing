@@ -22,7 +22,7 @@
         else
         {
             <div class="app-title">
-                @if (score > (Questions.Count / 2))
+                @if (score > (Questions.Count / 1.5))
                 {
                     <img src="https://img.icons8.com/ios/100/000000/prize--v1.png" />
                 }
@@ -38,14 +38,28 @@
                 <b>You scored @score points!</b>
             </div>
               <div class="app-title">
-              @("Total Questions:")   
+              @("Total Questions:")
+            
                 </div>
  <div class="app-title">
                  @(Questions.Count()) 
                </div>
+         
+              
+
             <div class="quiz-footer">
                 <button class="next-btn" @onclick="@RestartQuiz">Play Again</button>
             </div>
+
+               <div class="app-title">
+                 @("Questions incorrectly answered:")
+           @for (int i = 0; i < failedIndex; i++)
+    {
+        @failedQuestions[i]
+                    
+                }
+            </div>
+    
         }
     </div>
 </div>

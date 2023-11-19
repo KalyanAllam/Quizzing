@@ -8,12 +8,15 @@ namespace Quizzing.Pages
         public List<Question> Questions { get; set; } = new List<Question>();
         protected int questionIndex = 0;
         protected int score = 0;
-        protected string[] failedquestions;
+       protected string[] failedQuestions= new string[100]; 
         protected int failedIndex = 0;
 
 
+
+     
         protected override Task OnInitializedAsync()
         {
+          
             LoadQuestions();
 
             return base.OnInitializedAsync();
@@ -25,8 +28,10 @@ namespace Quizzing.Pages
             {
                 score++;
             }
-            { //failedquestions[failedIndex] = Questions[questionIndex].QuestionTitle;
-              //  failedIndex++;
+            else 
+            {
+                failedQuestions[failedIndex] = Questions[questionIndex].QuestionTitle;
+                failedIndex++;
 
 
             }
